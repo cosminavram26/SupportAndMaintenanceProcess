@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Path to the configuration file that defines settings, constants and assets." Name="in_configFile" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Names of the sheets corresponding to settings and constants in the configuration file." Name="in_configSheet" Type="InArgument(s:String[])" />
-    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="out_config" Type="OutArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <this:Main.in_configSheet>
     <InArgument x:TypeArguments="s:String[]">
@@ -97,7 +96,7 @@
       <Variable x:TypeArguments="x:Boolean" Name="hasAccess" />
       <Variable x:TypeArguments="s:Exception" Name="sharepointException" />
       <Variable x:TypeArguments="s:Exception" Name="outlookException" />
-      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="config" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="config" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -117,11 +116,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">430,544</av:Point>
-          <av:Size x:Key="ShapeSize">200,96</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">530,640 530,706.5</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,93</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">530,637 530,716.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Accesa Sharepoint Login&#xD;&#xA;" DisplayName="Invoke Sharepoint_Run workflow" sap:VirtualizedContainerService.HintSize="358,157" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Applications\\Sharepoint\\Sharepoint_Run.xaml">
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Accesa Sharepoint Login&#xA;" DisplayName="Invoke Sharepoint_Run workflow" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Applications\\Sharepoint\\Sharepoint_Run.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_hasAccess">
             <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">hasAccess</mca:CSharpReference>
@@ -129,6 +128,9 @@
           <InOutArgument x:TypeArguments="s:Exception" x:Key="io_SharepointException">
             <mca:CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">sharepointException</mca:CSharpReference>
           </InOutArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">
+            <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">config</mca:CSharpValue>
+          </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -145,23 +147,23 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">450,706.5</av:Point>
+              <av:Point x:Key="ShapeLocation">450,716.5</av:Point>
               <av:Size x:Key="ShapeSize">160,87</av:Size>
               <x:String x:Key="FalseLabel">No</x:String>
               <x:String x:Key="TrueLabel">Yes</x:String>
-              <av:PointCollection x:Key="TrueConnector">450,750 420,750 420,746 290,746</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">610,750 760,750</av:PointCollection>
+              <av:PointCollection x:Key="TrueConnector">450,760 280,760</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">610,760 760,760</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">90,674</av:Point>
-                  <av:Size x:Key="ShapeSize">200,144</av:Size>
+                  <av:Point x:Key="ShapeLocation">80,691</av:Point>
+                  <av:Size x:Key="ShapeSize">200,138</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Upload an item to the Trigger Queue that will trigger the DocumentUnderstandingDispatcher Process&#xD;&#xA;" DisplayName="Invoke TriggerProcess workflow" sap:VirtualizedContainerService.HintSize="200,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\\TriggerProcess.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Upload an item to the Trigger Queue that will trigger the DocumentUnderstandingDispatcher Process&#xA;" DisplayName="Invoke TriggerProcess workflow" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\\TriggerProcess.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                 </ui:InvokeWorkflowFile.Arguments>
@@ -178,14 +180,16 @@
             <FlowStep x:Name="__ReferenceID2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">760,694</av:Point>
-                  <av:Size x:Key="ShapeSize">200,112</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">860,806 860,884</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">760,706</av:Point>
+                  <av:Size x:Key="ShapeSize">200,108</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">860,814 860,884</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post a new ticket in Accesa ServiceNow&#xD;&#xA;" DisplayName="Invoke ServiceNow_PostTicket workflow" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Applications\\ServiceNow\\ServiceNow_PostTicket.xaml">
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post a new ticket in Accesa ServiceNow&#xA;" DisplayName="Invoke ServiceNow_PostTicket workflow" sap:VirtualizedContainerService.HintSize="379,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Applications\\ServiceNow\\ServiceNow_PostTicket.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">
+                    <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">config</mca:CSharpValue>
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -199,10 +203,10 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">760,884</av:Point>
-                      <av:Size x:Key="ShapeSize">200,112</av:Size>
+                      <av:Size x:Key="ShapeSize">200,108</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send an email with exception details to the consultant&#xD;&#xA;" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Common\\Email\\SendEmail.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send an email with exception details to the consultant&#xA;" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Common\\Email\\SendEmail.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_to">
                         <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">config["Email_SystemException_To"].ToString()</mca:CSharpValue>
@@ -245,25 +249,25 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">430,150</av:Point>
-          <av:Size x:Key="ShapeSize">200,160</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">530,310 530,372</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,153</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">530,303 530,372</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Read configuration fle and initilize appliations used in the process.&#xA;&#xA;" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="200,160" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Read configuration fle and initilize appliations used in the process.&#xA;&#xA;" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="200,153" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="754,2042" sap2010:WorkflowViewState.IdRef="If_1">
+        <If DisplayName="If first run, read local configuration file" sap:VirtualizedContainerService.HintSize="754,2019" sap2010:WorkflowViewState.IdRef="If_1">
           <If.Condition>
             <InArgument x:TypeArguments="x:Boolean">
               <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">config == null</mca:CSharpValue>
             </InArgument>
           </If.Condition>
           <If.Then>
-            <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="718,1862" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="First run" sap:VirtualizedContainerService.HintSize="718,1842" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -272,7 +276,7 @@
               <Assign DisplayName="Assign out_Config (initialization)" sap:VirtualizedContainerService.HintSize="676,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
                   <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-                    <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_config</mca:CSharpReference>
+                    <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">config</mca:CSharpReference>
                   </OutArgument>
                 </Assign.To>
                 <Assign.Value>
@@ -281,13 +285,13 @@
                   </InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Configuration Sheet" sap:VirtualizedContainerService.HintSize="676,1670" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Configuration Sheet" sap:VirtualizedContainerService.HintSize="676,1650" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:String" Name="sheet" />
                     </ActivityAction.Argument>
-                    <Sequence sap2010:Annotation.AnnotationText="Read settings and constants from the configuration fil and add them to the config dictionary.&#xA;" DisplayName="Get local settings and constants" sap:VirtualizedContainerService.HintSize="640,1535" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence sap2010:Annotation.AnnotationText="Read settings and constants from the configuration fil and add them to the config dictionary.&#xA;" DisplayName="Get local settings and constants" sap:VirtualizedContainerService.HintSize="640,1516" sap2010:WorkflowViewState.IdRef="Sequence_2">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="settingsAndConstants" />
                       </Sequence.Variables>
@@ -314,7 +318,7 @@
                           </InArgument>
                         </ui:ReadRange.WorkbookPath>
                       </ui:ReadRange>
-                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Configration Row" sap:VirtualizedContainerService.HintSize="598,52" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Configration Row" sap:VirtualizedContainerService.HintSize="598,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                         <ui:ForEachRow.Body>
                           <ActivityAction x:TypeArguments="sd:DataRow">
                             <ActivityAction.Argument>
@@ -335,7 +339,7 @@
                                 <Assign DisplayName="Assign Confi key/value pair" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Object">
-                                      <mca:CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_config[row["Name"].ToString().Trim()]</mca:CSharpReference>
+                                      <mca:CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">config[row["Name"].ToString().Trim()]</mca:CSharpReference>
                                     </OutArgument>
                                   </Assign.To>
                                   <Assign.Value>
@@ -360,7 +364,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ForEachRow>
-                      <TryCatch DisplayName="Try initializing assets" sap:VirtualizedContainerService.HintSize="598,1180" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                      <TryCatch DisplayName="Try initializing assets" sap:VirtualizedContainerService.HintSize="598,1164" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -368,7 +372,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <TryCatch.Try>
-                          <Sequence sap2010:Annotation.AnnotationText="Get from Orchestrator the values of assets listed in the Assets sheet.&#xA;" DisplayName="Get Orchestrator assets" sap:VirtualizedContainerService.HintSize="560,948" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <Sequence sap2010:Annotation.AnnotationText="Get from Orchestrator the values of assets listed in the Assets sheet.&#xA;" DisplayName="Get Orchestrator assets" sap:VirtualizedContainerService.HintSize="560,937" sap2010:WorkflowViewState.IdRef="Sequence_4">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="sd:DataTable" Name="Assets" />
                             </Sequence.Variables>
@@ -390,20 +394,20 @@
                                 </InArgument>
                               </ui:ReadRange.WorkbookPath>
                             </ui:ReadRange>
-                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For each asset row" sap:VirtualizedContainerService.HintSize="518,685" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For each asset row" sap:VirtualizedContainerService.HintSize="518,676" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                               <ui:ForEachRow.Body>
                                 <ActivityAction x:TypeArguments="sd:DataRow">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                   </ActivityAction.Argument>
-                                  <If DisplayName="If asset row is not empty" sap:VirtualizedContainerService.HintSize="484,564" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If DisplayName="If asset row is not empty" sap:VirtualizedContainerService.HintSize="484,556" sap2010:WorkflowViewState.IdRef="If_5">
                                     <If.Condition>
                                       <InArgument x:TypeArguments="x:Boolean">
                                         <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">! String.IsNullOrWhiteSpace(row["Name"].ToString().Trim())</mca:CSharpValue>
                                       </InArgument>
                                     </If.Condition>
                                     <If.Then>
-                                      <TryCatch DisplayName="Try retrieving asset from Orchestator" sap:VirtualizedContainerService.HintSize="438,384" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                      <TryCatch DisplayName="Try retrieving asset from Orchestator" sap:VirtualizedContainerService.HintSize="438,379" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                                         <TryCatch.Try>
                                           <Sequence DisplayName="Get asset from Orchestrator" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                             <Sequence.Variables>
@@ -417,7 +421,7 @@
                                             <Assign DisplayName="Assign asset value in Config" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                                               <Assign.To>
                                                 <OutArgument x:TypeArguments="x:Object">
-                                                  <mca:CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">out_config[row["Name"].ToString()]</mca:CSharpReference>
+                                                  <mca:CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">config[row["Name"].ToString()]</mca:CSharpReference>
                                                 </OutArgument>
                                               </Assign.To>
                                               <Assign.Value>
@@ -429,7 +433,7 @@
                                           </Sequence>
                                         </TryCatch.Try>
                                         <TryCatch.Catches>
-                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,22" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -440,14 +444,14 @@
                                               <ActivityAction.Argument>
                                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                               </ActivityAction.Argument>
-                                              <If DisplayName="If asset name is specified, log warning" sap:VirtualizedContainerService.HintSize="484,271" sap2010:WorkflowViewState.IdRef="If_4">
+                                              <If DisplayName="If asset name is specified, log warning" sap:VirtualizedContainerService.HintSize="484,267" sap2010:WorkflowViewState.IdRef="If_4">
                                                 <If.Condition>
                                                   <InArgument x:TypeArguments="x:Boolean">
                                                     <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">! String.IsNullOrWhiteSpace(row["Name"].ToString().Trim())</mca:CSharpValue>
                                                   </InArgument>
                                                 </If.Condition>
                                                 <If.Then>
-                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
                                                     <ui:LogMessage.Message>
                                                       <InArgument x:TypeArguments="x:Object">
                                                         <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">"Loading asset " + row["Asset"].ToString() + " failed: " + exception.Message</mca:CSharpValue>
@@ -473,7 +477,7 @@
                           </Sequence>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="564,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="564,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -484,7 +488,7 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                               </ActivityAction.Argument>
-                              <ui:LogMessage DisplayName="Log Message (no assets)" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace">
+                              <ui:LogMessage DisplayName="Log Message (no assets)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace">
                                 <ui:LogMessage.Message>
                                   <InArgument x:TypeArguments="x:Object">
                                     <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"No assets defined for the process."</mca:CSharpValue>
@@ -507,29 +511,17 @@
             </Sequence>
           </If.Then>
         </If>
-        <Assign DisplayName="Assign Dictionary" sap:VirtualizedContainerService.HintSize="754,60" sap2010:WorkflowViewState.IdRef="Assign_5">
-          <Assign.To>
-            <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-              <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">config</mca:CSharpReference>
-            </OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-              <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">out_config</mca:CSharpValue>
-            </InArgument>
-          </Assign.Value>
-        </Assign>
       </Sequence>
       <FlowStep.Next>
         <FlowStep x:Name="__ReferenceID5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">430,372</av:Point>
-              <av:Size x:Key="ShapeSize">200,96</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">530,468 530,544</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,93</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">530,465 530,544</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Outlook Services&#xD;&#xA;" DisplayName="Invoke OutlookTest workflow" sap:VirtualizedContainerService.HintSize="200,96" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Applications\\Outlook\\OutlookTest.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Outlook Services&#xA;" DisplayName="Invoke OutlookTest workflow" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Applications\\Outlook\\OutlookTest.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InOutArgument x:TypeArguments="s:Exception" x:Key="io_OutlookException">
                 <mca:CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">outlookException</mca:CSharpReference>
