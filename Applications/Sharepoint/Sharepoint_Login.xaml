@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Sharepoint_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_AccesaSharepointCredentials" Type="InArgument(x:String)" />
-    <x:Property Name="io_hasAccess" Type="InArgument(x:Boolean)" />
+    <x:Property Name="io_hasAccess" Type="InOutArgument(x:Boolean)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1359,2235</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1359,2327</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sharepoint_Login_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -41,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -60,9 +60,19 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sharepoint_Login" sap:VirtualizedContainerService.HintSize="831,2070" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sharepoint_Login" sap:VirtualizedContainerService.HintSize="873,2162" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="x:String" Name="email" />
@@ -72,9 +82,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="789,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Logging in Accesa Sharepoint...&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_AccesaSharepointCredentials]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="789,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[email]" />
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser to Sign In Page" sap:VirtualizedContainerService.HintSize="789,956" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ba98f610650510490e9075c10e9ca218" Selector="&lt;html app='chrome.exe' title='Sign in to your account' /&gt;">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="831,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Logging in Accesa Sharepoint...&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_AccesaSharepointCredentials]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="831,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[password]" Username="[email]" />
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser to Sign In Page" sap:VirtualizedContainerService.HintSize="831,956" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ba98f610650510490e9075c10e9ca218" Selector="&lt;html app='chrome.exe' title='Sign in to your account' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -189,13 +199,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe BA'" sap:VirtualizedContainerService.HintSize="789,732" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="717f2b5a1c003700259d066b91fdc343" Selector="&lt;html app='chrome.exe' title='BA RPA - Home' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe BA'" sap:VirtualizedContainerService.HintSize="831,824" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="717f2b5a1c003700259d066b91fdc343" Selector="&lt;html app='chrome.exe' title='BA RPA - Home' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Check Login" sap:VirtualizedContainerService.HintSize="755,586" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Check Login" sap:VirtualizedContainerService.HintSize="797,678" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="succesLogin" />
             </Sequence.Variables>
@@ -204,7 +214,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:UiElementExists DisplayName="Element Exists 'SPAN'" Exists="[succesLogin]" sap:VirtualizedContainerService.HintSize="713,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+            <ui:UiElementExists DisplayName="Element Exists 'SPAN'" Exists="[succesLogin]" sap:VirtualizedContainerService.HintSize="755,106" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3878cab6-dfd2-4816-b582-5a808299af1f" InformativeScreenshot="02fe5c4a92220896c9ccb0034b17264a" Selector="&lt;webctrl parentid='spLeftNav' parentname='Home' tag='SPAN' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -216,22 +226,29 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[succesLogin]" sap:VirtualizedContainerService.HintSize="713,248" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[succesLogin]" sap:VirtualizedContainerService.HintSize="755,440" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;User with email &quot; + email + &quot; has logged succesfully.&quot;]" />
               </If.Then>
               <If.Else>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Login failed.&quot;]" />
+                <Sequence DisplayName="Login failed flow" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Login failed.&quot;]" />
+                  <Assign DisplayName="Sending the boolean value" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[io_hasAccess]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">[false]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
               </If.Else>
             </If>
-            <Assign DisplayName="Sending the boolean value" sap:VirtualizedContainerService.HintSize="713,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Boolean">[io_hasAccess]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Boolean">[succesLogin]</InArgument>
-              </Assign.Value>
-            </Assign>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
