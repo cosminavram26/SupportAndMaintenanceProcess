@@ -9,7 +9,7 @@
     </InArgument>
   </this:Main.in_configSheet>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1359,1308</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1204,1308</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="60">
@@ -101,6 +101,8 @@
       <Variable x:TypeArguments="s:Exception" Name="sharepointException" />
       <Variable x:TypeArguments="s:Exception" Name="outlookException" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="config" />
+      <Variable x:TypeArguments="s:String[]" Name="exceptionMessageArray" />
+      <Variable x:TypeArguments="s:String[]" Name="exceptionSourceArray" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -114,17 +116,17 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID6</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
     </Flowchart.StartNode>
     <FlowStep x:Name="__ReferenceID4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">430,544</av:Point>
-          <av:Size x:Key="ShapeSize">200,93</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">530,637 530,716.5</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,96</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">530,640 530,680</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Accesa Sharepoint Login&#xA;" DisplayName="Invoke Sharepoint_Run workflow" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Applications\\Sharepoint\\Sharepoint_Run.xaml">
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Accesa Sharepoint Login&#xA;" DisplayName="Invoke Sharepoint_Run workflow" sap:VirtualizedContainerService.HintSize="200,96" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Applications\\Sharepoint\\Sharepoint_Run.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InOutArgument x:TypeArguments="x:Boolean" x:Key="io_hasAccess">
             <mca:CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">hasAccess</mca:CSharpReference>
@@ -144,94 +146,63 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:InvokeWorkflowFile>
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID0" DisplayName="Process Initialized Succesfully" sap:VirtualizedContainerService.HintSize="160,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-          <FlowDecision.Condition>
-            <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">hasAccess</mca:CSharpValue>
-          </FlowDecision.Condition>
+        <FlowStep x:Name="__ReferenceID6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <av:Point x:Key="ShapeLocation">450,716.5</av:Point>
-              <av:Size x:Key="ShapeSize">160,87</av:Size>
-              <x:String x:Key="FalseLabel">No</x:String>
-              <x:String x:Key="TrueLabel">Yes</x:String>
-              <av:PointCollection x:Key="TrueConnector">450,760 280,760</av:PointCollection>
-              <av:PointCollection x:Key="FalseConnector">610,760 760,760</av:PointCollection>
+              <av:Point x:Key="ShapeLocation">430,680</av:Point>
+              <av:Size x:Key="ShapeSize">200,52</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">530,732 530,806.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <FlowDecision.True>
-            <FlowStep x:Name="__ReferenceID1">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ExceptionHandling_CreateExceptionArray workflow" sap:VirtualizedContainerService.HintSize="379,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Common\\ExceptionHandling\\ExceptionHandling_CreateExceptionArray.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="s:Exception" x:Key="in_SharepointException">
+                <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">sharepointException</mca:CSharpValue>
+              </InArgument>
+              <InArgument x:TypeArguments="s:Exception" x:Key="in_OutlookException">
+                <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_42">outlookException</mca:CSharpValue>
+              </InArgument>
+              <OutArgument x:TypeArguments="s:String[]" x:Key="out_ExceptionMessageArray">
+                <mca:CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">exceptionMessageArray</mca:CSharpReference>
+              </OutArgument>
+              <OutArgument x:TypeArguments="s:String[]" x:Key="out_ExceptionSourceArray">
+                <mca:CSharpReference x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">exceptionSourceArray</mca:CSharpReference>
+              </OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+          <FlowStep.Next>
+            <FlowDecision x:Name="__ReferenceID0" DisplayName="Process Initialized Succesfully" sap:VirtualizedContainerService.HintSize="160,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+              <FlowDecision.Condition>
+                <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">hasAccess</mca:CSharpValue>
+              </FlowDecision.Condition>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">80,691</av:Point>
-                  <av:Size x:Key="ShapeSize">200,138</av:Size>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">450,806.5</av:Point>
+                  <av:Size x:Key="ShapeSize">160,87</av:Size>
+                  <x:String x:Key="FalseLabel">No</x:String>
+                  <x:String x:Key="TrueLabel">Yes</x:String>
+                  <av:PointCollection x:Key="TrueConnector">450,850 420,850 420,763 280,763</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">610,850 640,850 640,762 760,762</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Upload an item to the Trigger Queue that will trigger the DocumentUnderstandingDispatcher Process&#xA;" DisplayName="Invoke TriggerProcess workflow" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\\TriggerProcess.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                </ui:InvokeWorkflowFile.Arguments>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:InvokeWorkflowFile>
-            </FlowStep>
-          </FlowDecision.True>
-          <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID2">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">760,706</av:Point>
-                  <av:Size x:Key="ShapeSize">200,108</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">860,814 860,884</av:PointCollection>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post a new ticket in Accesa ServiceNow&#xA;" DisplayName="Invoke ServiceNow_PostTicket workflow" sap:VirtualizedContainerService.HintSize="379,154" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Applications\\ServiceNow\\ServiceNow_PostTicket.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">
-                    <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">config</mca:CSharpValue>
-                  </InArgument>
-                  <InArgument x:TypeArguments="s:String[]" x:Key="in_Exceptions">
-                    <mca:CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">new String[2] {sharepointException.Message, outlookException.Message}</mca:CSharpValue>
-                  </InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-              </ui:InvokeWorkflowFile>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID3">
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">760,884</av:Point>
-                      <av:Size x:Key="ShapeSize">200,108</av:Size>
+                      <av:Point x:Key="ShapeLocation">80,691</av:Point>
+                      <av:Size x:Key="ShapeSize">200,144</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send an email with exception details to the consultant&#xA;" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Common\\Email\\SendEmail.xaml">
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Upload an item to the Trigger Queue that will trigger the DocumentUnderstandingDispatcher Process&#xA;" DisplayName="Invoke TriggerProcess workflow" sap:VirtualizedContainerService.HintSize="200,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\\TriggerProcess.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_to">
-                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">config["Email_SystemException_To"].ToString()</mca:CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_subject">
-                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">config["Email_SystemException_Subject"].ToString()</mca:CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_body">
-                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">config["Email_SystemException_Body"].ToString()</mca:CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_account">
-                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">config["Email_Account_Outlook"].ToString()</mca:CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="s:Exception" x:Key="in_outlookException">
-                        <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">outlookException</mca:CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="s:Exception" x:Key="in_SharepointException">
-                        <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">sharepointException</mca:CSharpValue>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_QueueName">
+                        <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">config["OrchestratorQueueName"].ToString()</mca:CSharpValue>
                       </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
@@ -242,25 +213,90 @@
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
                 </FlowStep>
-              </FlowStep.Next>
-            </FlowStep>
-          </FlowDecision.False>
-        </FlowDecision>
+              </FlowDecision.True>
+              <FlowDecision.False>
+                <FlowStep x:Name="__ReferenceID2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">760,706</av:Point>
+                      <av:Size x:Key="ShapeSize">200,112</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">860,818 860,884</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Post a new ticket in Accesa ServiceNow&#xA;" DisplayName="Invoke ServiceNow_PostTicket workflow" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Applications\\ServiceNow\\ServiceNow_PostTicket.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">
+                        <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">config</mca:CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="s:String[]" x:Key="in_Exceptions">
+                        <mca:CSharpValue x:TypeArguments="s:String[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">exceptionMessageArray</mca:CSharpValue>
+                      </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">760,884</av:Point>
+                          <av:Size x:Key="ShapeSize">200,112</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send an email with exception details to the consultant&#xA;" DisplayName="Invoke SendEmail workflow" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Common\\Email\\SendEmail.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_to">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">config["Email_SystemException_To"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_subject">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">config["Email_SystemException_Subject"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_body">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">config["Email_SystemException_Body"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_account">
+                            <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">config["Email_Account_Outlook"].ToString()</mca:CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="s:Exception" x:Key="in_outlookException">
+                            <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">outlookException</mca:CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SharepointException">
+                            <mca:CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">sharepointException</mca:CSharpValue>
+                          </InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowDecision.False>
+            </FlowDecision>
+          </FlowStep.Next>
+        </FlowStep>
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
-    <FlowStep x:Name="__ReferenceID6">
+    <FlowStep x:Name="__ReferenceID7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">430,150</av:Point>
-          <av:Size x:Key="ShapeSize">200,153</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">530,303 530,372</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,160</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">530,310 530,372</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Read configuration fle and initilize appliations used in the process.&#xA;&#xA;" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="200,153" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Read configuration fle and initilize appliations used in the process.&#xA;&#xA;" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="200,160" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -531,11 +567,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">430,372</av:Point>
-              <av:Size x:Key="ShapeSize">200,93</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">530,465 530,544</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,96</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">530,468 530,544</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Outlook Services&#xA;" DisplayName="Invoke OutlookTest workflow" sap:VirtualizedContainerService.HintSize="200,93" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Applications\\Outlook\\OutlookTest.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Test Outlook Services&#xA;" DisplayName="Invoke OutlookTest workflow" sap:VirtualizedContainerService.HintSize="200,96" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Applications\\Outlook\\OutlookTest.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InOutArgument x:TypeArguments="s:Exception" x:Key="io_OutlookException">
                 <mca:CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">outlookException</mca:CSharpReference>
@@ -558,5 +594,6 @@
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
   </Flowchart>
 </Activity>

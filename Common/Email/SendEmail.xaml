@@ -4,11 +4,11 @@
     <x:Property Name="in_subject" Type="InArgument(x:String)" />
     <x:Property Name="in_body" Type="InArgument(x:String)" />
     <x:Property Name="in_account" Type="InArgument(x:String)" />
-    <x:Property Name="in_outlookException" Type="InArgument(s:Exception)" />
-    <x:Property Name="in_SharepointException" Type="InArgument(s:Exception)" />
+    <x:Property Name="in_ExceptionMessageArray" Type="InArgument(s:String[])" />
+    <x:Property Name="in_ExceptionSourceArray" Type="InArgument(s:String[])" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>486,825</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1204,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -107,7 +107,7 @@
             </ui:SendOutlookMail.Account>
             <ui:SendOutlookMail.Body>
               <InArgument x:TypeArguments="x:String">
-                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">String.Format(in_body, String.Join("--", new List&lt;String&gt;() { in_outlookException.Message, in_SharepointException.Message}), String.Join("--", new List&lt;String&gt;() { in_outlookException.Source, in_SharepointException.Source} ) )</mca:CSharpValue>
+                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">String.Format(in_body, String.Join("--",in_ExceptionMessageArray), String.Join("--", in_ExceptionSourceArray ) )</mca:CSharpValue>
               </InArgument>
             </ui:SendOutlookMail.Body>
             <ui:SendOutlookMail.Files>
