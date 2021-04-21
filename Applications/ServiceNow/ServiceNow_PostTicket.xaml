@@ -4,7 +4,7 @@
     <x:Property Name="in_Exceptions" Type="InArgument(s:String[])" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1359,1909</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1204,1909</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -129,9 +129,9 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+          <av:Point x:Key="ShapeLocation">290,2.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,156.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">320,77.5 320,156.5</av:PointCollection>
           <x:Double x:Key="Width">640</x:Double>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
@@ -146,17 +146,17 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <av:Point x:Key="ShapeLocation">235.5,156.5</av:Point>
+            <av:Point x:Key="ShapeLocation">255.5,156.5</av:Point>
             <av:Size x:Key="ShapeSize">129,87</av:Size>
-            <av:PointCollection x:Key="TrueConnector">235.5,200 220,200 220,447 280,447 280,510 250,510</av:PointCollection>
-            <av:PointCollection x:Key="FalseConnector">364.5,200 390,200 390,447 330,447 330,510 360,510</av:PointCollection>
+            <av:PointCollection x:Key="TrueConnector">255.5,200 240,200 240,447 300,447 300,510 270,510</av:PointCollection>
+            <av:PointCollection x:Key="FalseConnector">384.5,200 410,200 410,447 350,447 350,510 380,510</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <FlowDecision.True>
           <FlowStep x:Name="__ReferenceID0">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">50,477</av:Point>
+                <av:Point x:Key="ShapeLocation">70,477</av:Point>
                 <av:Size x:Key="ShapeSize">200,66</av:Size>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -202,7 +202,7 @@
           <FlowStep x:Name="__ReferenceID1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">360,477</av:Point>
+                <av:Point x:Key="ShapeLocation">380,477</av:Point>
                 <av:Size x:Key="ShapeSize">200,66</av:Size>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
